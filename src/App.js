@@ -1,30 +1,22 @@
-import './App.css';
-import Create from './components/create/create';
-import Read from './components/read/read';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Update from './components/update/update';
+import './App.css'
+import Create from './components/create/create'
+import Read from './components/read/read'
+import { Routes, Route } from 'react-router-dom'
+import Update from './components/update/update'
 
 function App() {
-  return (
-    <Router>
-      <div className="main">
-        <div>
-          <h3>React Crud Operations</h3>
-        </div>
-
-        <div>
-          <Route exact path='/' component={Create} />
-        </div>
-
-        <div style={{ marginTop: 20 }}>
-          <Route exact path='/read' component={Read} />
-        </div>
-
-        <Route path='/update' component={Update} />
-        
-      </div>
-    </Router>
-  );
+    return (
+        <>
+            <div className='main'>
+                <h3>React Crud Operations</h3>
+                <Routes>
+                    <Route path='/' element={<Create />} />
+                    <Route path='/read' element={<Read />} />
+                    <Route path='/update' element={<Update />} />
+                </Routes>
+            </div>
+        </>
+    )
 }
 
-export default App;
+export default App
