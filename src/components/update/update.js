@@ -33,14 +33,14 @@ export default function Update() {
     }, [])
 
     return (
-        <div>
+        <>
             <Form>
                 <Form.Group>
                     <Form.Label>Name</Form.Label>
                     <Form.Control name="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder='First Name' />
+                        placeholder='Name' />
                 </Form.Group>
 
                 <Form.Group>
@@ -48,23 +48,33 @@ export default function Update() {
                     <Form.Control
                         name="email"
                         value={email}
-                        placeholder='Last Name'
+                        placeholder='Email'
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </Form.Group>
 
-                {/* <Form.Group>
-                    <Form.Label>Gender</Form.Label>
-                    <Form.Control
-                        name="gender"
-                        value={gender}
-                        placeholder='Gender'
-                        onChange={(e) => setGender(e.target.value)}
-                    />
-                </Form.Group> */}
-
-
                 <Form.Group>
+                    <Form.Label>Gender</Form.Label>
+                    <Form.Check
+                        type="radio"
+                        name="gender"
+                        value="male"
+                        label="male"
+                        onChange={(e) => setGender(e.target.value)}
+                        checked={gender && gender === "male"}
+                    />
+                    <Form.Check
+                        type="radio"
+                        name="gender"
+                        label="female"
+                        value="female"
+                        onChange={(e) => setGender(e.target.value)}
+                        checked={gender && gender === "female"}
+                    />
+                </Form.Group>
+
+
+                {/* <Form.Group>
                     <Form.Label>Gender</Form.Label>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <Form.Check
@@ -85,7 +95,7 @@ export default function Update() {
 
                         />
                     </div>
-                </Form.Group>
+                </Form.Group> */}
                 {/* <Form.Group>
                     <Form.Label>Status</Form.Label>
                     <Form.Control
@@ -110,6 +120,6 @@ export default function Update() {
                 <br />
                 <Button type='submit' onClick={sendDataToAPI}>Update</Button>
             </Form>
-        </div>
+        </>
     )
 }
